@@ -9,4 +9,5 @@ cfg/cpp
 lib
 msg_gen
 srv_gen
+src/blort_ros
 
