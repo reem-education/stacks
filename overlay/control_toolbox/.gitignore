@@ -1,0 +1,5 @@
+build
+*.cfgc
+cfg/cpp
+lib
+srv_gen
