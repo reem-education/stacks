@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <!-- Optional environment variable, to enable RGBD sensor  -->
+  <arg name="use_rgbd_sensor" value="$(optenv USE_RGBD_SENSOR false)"/>
+
+  <!-- Default, send standard REEM URDF model to ROS Param Server  -->
+  <group unless="$(arg use_rgbd_sensor)">
+    <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(find reem_tutorials)/config/reem_full_fuerte.vcg"/>
+  </group>
+
+  <!-- Alternatively load REEM URDF with RGBD sensor -->
+  <group if="$(arg use_rgbd_sensor)">
+   <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(find reem_tutorials)/config/reem_rgbd.vcg"/>
+  </group>
+
+  <!-- Split base sonars -->
+  <arg name="frequency" default="120"/>
+  <node name="sonar_base_1" pkg="reem_tutorials" type="sonar_base_1.sh" args="$(arg frequency)"/>
+  <node name="sonar_base_2" pkg="reem_tutorials" type="sonar_base_2.sh" args="$(arg frequency)"/>
+</launch>

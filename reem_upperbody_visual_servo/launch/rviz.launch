@@ -1,0 +1,3 @@
+<launch>
+  <node name="reem_upperbody_visual_servo_rviz" pkg="rviz" type="rviz" args="-d $(find reem_upperbody_visual_servo)/config/reem.vcg" />
+</launch>

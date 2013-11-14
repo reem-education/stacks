@@ -1,0 +1,24 @@
+<launch>
+
+    <group ns="/disparity_segmentation">
+        <param name="mask_path" value="$(find pal_vision_segmentation)/test/mask_obj.jpg" />
+    </group>
+
+    <include file="$(find pal_vision_segmentation)/launch/disparity_and_stereo.launch" />
+
+    <node pkg="dynamic_reconfigure" type="reconfigure_gui" name="reconfigure_gui" />
+
+    <node pkg="image_view" type="image_view" name="image_view1">
+        <remap from="image" to="/disparity_segmentation/image_rect_masked" />
+    </node>
+
+    <node pkg="image_view" type="image_view" name="image_view2">
+        <remap from="image" to="/stereo/left/image_rect_color" />
+    </node>
+
+    <node pkg="image_view" type="disparity_view" name="image_view3">
+        <remap from="image" to="/stereo/disparity" />
+    </node>
+
+</launch>
+

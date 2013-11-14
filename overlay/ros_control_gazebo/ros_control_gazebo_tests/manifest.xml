@@ -1,0 +1,24 @@
+<package>
+  <description brief="ros_control_gazebo_tests">
+
+     ros_control_gazebo_tests
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ros_control_gazebo_tests</url>
+
+  <depend package="ros_control_gazebo"/>
+  <depend package="ros_control_gazebo_plugin"/>
+  <depend package="effort_controllers"/>
+
+  <rosdep name="gazebo" />
+
+  <export>
+    <ros_control_gazebo plugin="${prefix}/robot_sim_plugins.xml" />
+  </export>
+
+</package>
+
+

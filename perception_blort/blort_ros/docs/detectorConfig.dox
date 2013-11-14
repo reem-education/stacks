@@ -1,0 +1,7 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~recovery_conf_threshold" : \b [double] Threshold for recovery confidence min: 0.0, default: 0.05, max: 0.5
+- \b "~visualize" : \b [bool] Visualize object pose min: False, default: False, max: True
+

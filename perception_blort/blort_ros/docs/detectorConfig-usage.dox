@@ -1,0 +1,8 @@
+\subsubsection usage Usage
+\verbatim
+<node name="gldetector_node" pkg="blort_ros" type="gldetector_node">
+  <param name="recovery_conf_threshold" type="double" value="0.05" />
+  <param name="visualize" type="bool" value="False" />
+</node>
+\endverbatim
+

@@ -1,0 +1,9 @@
+\subsubsection usage Usage
+\verbatim
+<node name="template_segmentation_node" pkg="pal_vision_segmentation" type="template_segmentation_node">
+  <param name="window_height" type="int" value="10" />
+  <param name="window_width" type="int" value="10" />
+  <param name="coeffs_to_cancel" type="int" value="2" />
+</node>
+\endverbatim
+

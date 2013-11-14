@@ -1,0 +1,5 @@
+<launch>
+  <node name="person_detector" pkg="person_detector_opencv" type="person_detector">
+    <remap from="image" to="/stereo/right/image" />
+  </node>
+</launch>

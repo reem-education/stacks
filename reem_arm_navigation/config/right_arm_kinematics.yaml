@@ -1,0 +1,34 @@
+group:             right_arm
+kinematics_solver: reem_kinematics_constraint_aware/ReemKinematicsPlugin
+
+right_arm:
+  root_name:             torso_2_link
+  tip_name:              hand_right_grasping_frame
+#  tip_name:              arm_right_7_link
+  max_solver_iterations: 2000
+  max_search_iterations: 3
+  epsilon:               0.01  # Delta x considered to be near-zero
+  max_delta_x:           0.006 # 0.6   m/s x 0.01s
+  max_delta_q:           0.03  # 3.0 rad/s x 0.01s
+  velik_gain:            1.0
+
+  # Diagonal elements of joint space weight matrix
+  joint_weights:
+    arm_right_1_joint: 1.0
+    arm_right_2_joint: 1.0
+    arm_right_3_joint: 1.0
+    arm_right_4_joint: 1.0
+    arm_right_5_joint: 0.5
+    arm_right_6_joint: 1.0
+    arm_right_7_joint: 0.5
+
+  # Default posture to use as secondary task
+  default_posture:
+    arm_right_1_joint: -0.4
+    arm_right_2_joint:  0.6
+    arm_right_3_joint: -0.1
+    arm_right_4_joint:  0.6109
+    arm_right_5_joint:  0.2
+    arm_right_6_joint:  0.4
+    arm_right_7_joint:  0.2
+

@@ -1,0 +1,13 @@
+<stack>
+  <description brief="REEM tutorials"></description>
+  <author>Maintained by Adolfo Rodriguez Tsouroukdissian</author>
+  <license>Modified BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_tutorials</url>
+
+  <depend stack="actionlib" />
+  <depend stack="reem_arm_navigation" />
+  <depend stack="control" />
+  <depend stack="ros" />
+  <depend stack="vision_opencv" />
+</stack>

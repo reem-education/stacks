@@ -1,0 +1,40 @@
+# TODO: Compromise: 5mm succeeds often, but is a small margin. 10mm is a good margin, but may require planning retries
+# Retries are triggered by the final trajectory check. Maybe we should use a 10mm for planning, and a 5mm padding for checking
+default_robot_padding: 0.005
+link_padding:
+  - link: robot_body
+    padding: 0.0
+  - link: torso_2_link
+    padding: 0.0
+  - link: hand_right_thumb_link
+    padding: 0.1
+  - link: hand_right_index_1_link
+    padding: 0.1
+  - link: hand_right_index_2_link
+    padding: 0.1
+  - link: hand_right_index_3_link
+    padding: 0.1
+  - link: hand_right_middle_1_link
+    padding: 0.1
+  - link: hand_right_middle_2_link
+    padding: 0.1
+  - link: hand_right_middle_3_link
+    padding: 0.1
+  - link: hand_left_thumb_link
+    padding: 0.1
+  - link: hand_left_index_1_link
+    padding: 0.1
+  - link: hand_left_index_2_link
+    padding: 0.1
+  - link: hand_left_index_3_link
+    padding: 0.1
+  - link: hand_left_middle_1_link
+    padding: 0.1
+  - link: hand_left_middle_2_link
+    padding: 0.1
+  - link: hand_left_middle_3_link
+    padding: 0.1
+  - link: arm_left_tool_link
+    padding: 0.1
+  - link: arm_right_tool_link
+    padding: 0.1

@@ -1,0 +1,13 @@
+<launch>
+
+    <group ns="/stereo">
+        <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc">
+            <remap from="/stereo/left/image_raw" to="/stereo/left/image"/>
+            <remap from="/stereo/right/image_raw" to="/stereo/right/image"/>
+        </node>
+    </group>
+
+    <include file="$(find pal_vision_segmentation)/launch/disparity_segment.launch" />
+
+</launch>
+

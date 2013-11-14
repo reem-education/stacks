@@ -1,0 +1,12 @@
+<launch>
+    
+    <group ns="/histogram_segmentation">
+        <rosparam command="load" file="$(find pal_vision_segmentation)/default_tabletop_histogram.yaml" />
+    </group>
+
+    <node pkg="pal_vision_segmentation" type="histogram_segmentation" name="histogram_segmentation" args="$(find pal_vision_segmentation)/etc/juicebox1.png">
+      <remap from="image" to="/stereo/left/image" />
+    </node>
+
+</launch>
+

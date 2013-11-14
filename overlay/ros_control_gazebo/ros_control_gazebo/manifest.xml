@@ -1,0 +1,24 @@
+<package>
+  <description brief="ros_control_gazebo">
+
+     ros_control_gazebo
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ros_control_gazebo</url>
+
+  <depend package="roscpp"/>
+  <depend package="hardware_interface"/>
+
+  <rosdep name="gazebo" />
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib"/>
+  </export>
+
+
+</package>
+
+

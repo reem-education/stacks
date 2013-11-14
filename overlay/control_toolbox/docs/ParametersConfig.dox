@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~p_gain" : \b [double] Proportional gain. min: 0.0, default: 10.0, max: 1000.0
+- \b "~i_gain" : \b [double] Integral gain. min: 0.0, default: 10.0, max: 100.0
+- \b "~d_gain" : \b [double] Derivative gain. min: 0.0, default: 10.0, max: 100.0
+- \b "~i_clamp_min" : \b [double] Min bounds for the integral windup min: 0.0, default: 10.0, max: 100.0
+- \b "~i_clamp_max" : \b [double] Max bounds for the integral windup min: 0.0, default: 10.0, max: 100.0
+

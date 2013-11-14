@@ -1,0 +1,33 @@
+<package>
+  <description brief="REEM tutorials.">
+    Basic tutorials to get familiar with the REEM robot in a simulated environment.
+  </description>
+  <author>Adolfo Rodriguez Tsouroukdissian, Jordi Pages</author>
+  <license>Modified BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_tutorials</url>
+
+  <depend package="control_msgs"/>
+  <depend package="cv_bridge"/>
+  <!--
+  <depend package="opencv2"/>
+  <depend package="pal_local_planner"/>
+  <depend package="pal_detection_msgs"/>
+  <depend package="pal_camera_client"/>
+  <depend package="pal_face_node"/>
+  <depend package="pal_face_database"/>
+  <depend package="pal_karto"/>
+  <depend package="reem_gazebo_2dnav"/>
+  -->
+  <depend package="pr2_controllers_msgs"/>
+
+  <depend package="reem_arm_navigation"/>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+
+  <depend package="reem_gazebo"/>
+
+
+  <rosdep name="gazebo"/>
+
+</package>

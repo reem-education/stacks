@@ -1,0 +1,19 @@
+<launch>
+  <!-- Optional environment variable, to enable RGBD sensor  -->
+  <arg name="use_rgbd_sensor" value="$(optenv USE_RGBD_SENSOR false)" />
+
+    <include file="$(find reem_arm_navigation)/launch/reem_planning_environment.launch" />
+    <include file="$(find reem_arm_navigation)/launch/environment_server.launch">
+        <arg name="use_monitor" value="true" />
+        <arg name="use_collision_map" value="$(arg use_rgbd_sensor)" />
+    </include>
+
+    <group if="$(arg use_rgbd_sensor)">
+      <include file="$(find reem_arm_navigation)/launch/perception.launch"/>
+    </group>
+
+    <include file="$(find reem_arm_navigation)/launch/constraint_aware_kinematics.launch" />
+    <include file="$(find reem_arm_navigation)/launch/ompl_planning.launch" />
+    <include file="$(find reem_arm_navigation)/launch/trajectory_filter_server.launch" />
+    <include file="$(find reem_arm_navigation)/launch/move_groups.launch" />
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <arg name="gzname" default="gazebo" /> <!-- gzserver -->
+  <arg name="use_karto" default="true" />
+  <arg name="open_rviz" default="true" />
+  <arg name="world" default="simple_office" />
+  <arg name="rviz_config" default="$(find reem_gazebo_2dnav)/config/reem.vcg" />
+
+  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+    <arg name="gzname" value="$(arg gzname)" />
+    <arg name="world" value="$(arg world)" />
+  </include>
+
+  <!-- Launch the mapper -->
+  <include if="$(arg use_karto)" file="$(find pal_karto)/launch/karto.launch" />
+  <include unless="$(arg use_karto)" file="$(find reem_gazebo_2dnav)/launch/gmapping_node.launch" />
+
+  <!-- Launch rviz -->
+  <include if="$(arg open_rviz)" file="$(find reem_gazebo_2dnav)/launch/rviz.launch">
+    <arg name="config" value="$(arg rviz_config)" />
+  </include>
+
+</launch>

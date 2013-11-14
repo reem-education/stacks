@@ -1,0 +1,12 @@
+<launch>
+    <include file="$(find reem_arm_navigation)/launch/reem_planning_environment.launch" />
+    <node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="reem_left_arm_kinematics">
+      <rosparam command="load" file="$(find reem_arm_navigation)/config/left_arm_kinematics.yaml" />
+    </node>
+    <node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="reem_right_arm_kinematics">
+      <rosparam command="load" file="$(find reem_arm_navigation)/config/right_arm_kinematics.yaml" />
+    </node>
+    <node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="reem_right_arm_torso_kinematics" >
+      <rosparam command="load" file="$(find reem_arm_navigation)/config/right_arm_torso_kinematics.yaml" />
+    </node>
+</launch>

@@ -1,0 +1,14 @@
+Index: launch/mapping.launch
+===================================================================
+--- launch/mapping.launch	(revision 47225)
++++ launch/mapping.launch	(working copy)
+@@ -1,7 +1,7 @@
+ <launch>
+    <!-- Run mapping in simulation of simple office world -->
+    <include file="$(find reem_gazebo_2dnav)/launch/reem_mapping.launch">
+-     <arg name="open_rviz" value="false" />
+-     <arg name="gzname" value="gazebo" />
++     <arg name="use_karto" value="false" />
++     <arg name="rviz_config" value="$(find reem_tutorials)/config/reem_mapping.vcg" />
+    </include>
+ </launch>

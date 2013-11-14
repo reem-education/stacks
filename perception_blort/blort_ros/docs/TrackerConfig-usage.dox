@@ -1,0 +1,13 @@
+\subsubsection usage Usage
+\verbatim
+<node name="gltracker_node" pkg="blort_ros" type="gltracker_node">
+  <param name="lock" type="bool" value="False" />
+  <param name="edge" type="bool" value="False" />
+  <param name="reset" type="bool" value="False" />
+  <param name="publish_mode" type="int" value="1" />
+  <param name="render_mode" type="int" value="0" />
+  <param name="visualize_obj_pose" type="bool" value="False" />
+  <param name="time_to_run_singleshot" type="double" value="10.0" />
+</node>
+\endverbatim
+

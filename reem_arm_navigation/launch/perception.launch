@@ -1,0 +1,31 @@
+<launch>
+  <!-- send additional description parameters -->
+  <include file="$(find reem_arm_navigation)/launch/reem_planning_environment.launch" />
+
+  <!-- self filter -->
+  <node pkg="robot_self_filter_color" type="self_filter_color" respawn="true" name="xtion_self_filter_color">
+    <remap from="cloud_in" to="/head_mount_xtion/rgb/points" />
+    <remap from="cloud_out" to="/obstacles_filtered" />
+    <param name="subsample_value" type="double" value=".02"/>
+    <rosparam command="load" file="$(find reem_arm_navigation)/config/self_filter.yaml" />
+  </node>
+
+  <!--TODO: Restore or remove!-->
+  <!-- attached_object filter stereo points -->
+<!--  <node pkg="planning_environment" type="filter_attached_objects" name="xtion_filter_attached_objects" output="screen">
+    <remap from="cloud_in" to="/head_mount_xtion/depth/points_filtered" />
+    <remap from="cloud_out" to="/head_mount_xtion/depth/points_filtered_attached" />
+    <param name="sensor_frame" type="string" value="stereo_optical_frame" />
+  </node>-->
+
+  <!-- octomap server -->
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+    <param name="frame_id" type="string" value="/base_link" /> <!-- TODO: Set to /map -->
+    <param name="resolution" type="double" value="0.025" />
+    <param name="sensor_model/max_range" type="double" value="0.35" />
+    <param name="sensor_model/max_range" type="double" value="1.5" />
+
+    <remap from="cloud_in" to="/obstacles_filtered" />
+    <remap from="collision_map_out" to="collision_map_occ" />
+  </node>
+</launch>

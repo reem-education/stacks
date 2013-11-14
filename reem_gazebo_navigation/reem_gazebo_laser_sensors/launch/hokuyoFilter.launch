@@ -1,0 +1,17 @@
+<launch>
+<arg name="node_name" />
+ <arg name="topic" /> 
+  <node pkg="laser_filters" type="scan_to_cloud_filter_chain" name="torso_laser_filter">
+    <rosparam command="load" file="$(find reemh2_gazebo_laser_sensors)/config/hokuyo_laser_config.yaml" />
+    <remap from="scan" to="$(arg topic)" />
+    <remap from="cloud_filtered" to="/hokuyo_cloud" />
+  </node>
+
+  <node pkg="pal_cloud_filter" type="pal_cloud_filter_node" name="pal_hokuyo_cloud_filter">
+    <param name="topic_in" value="$(arg topic)" />
+    <param name="topic_out" value="/hokuyo_cloud"  />
+    <param name="target_frame" value="/base_link"  />
+  </node>
+
+
+</launch>

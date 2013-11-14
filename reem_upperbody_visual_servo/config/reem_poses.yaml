@@ -1,0 +1,72 @@
+# Controllers to use to reach the desired poses. They must expose a FollowJointTrajectory action interface
+reach_pose:
+  controllers:
+    - torso_controller
+    - right_arm_controller
+    - left_arm_controller
+    - right_hand_controller
+    - left_hand_controller
+    - head_controller    
+
+  poses:
+
+    move_to_rest:
+      torso_1_joint:     0.0
+      torso_2_joint:     0.0
+      head_1_joint:      0.0
+      head_2_joint:      0.0
+      arm_right_1_joint: -0.4
+      arm_right_2_joint: 0.6
+      arm_right_3_joint: -0.1
+      arm_right_4_joint: 0.6109
+      arm_right_5_joint: 0.0
+      arm_right_6_joint: 0.0
+      arm_right_7_joint: 0.0
+      arm_left_1_joint:  -0.4
+      arm_left_2_joint:  0.6
+      arm_left_3_joint:  -0.1
+      arm_left_4_joint:  0.6109
+      arm_left_5_joint:  0.0
+      arm_left_6_joint:  0.0
+      arm_left_7_joint:  0.0
+
+    initial_grasp_pose_step1:
+      torso_1_joint:      0.0
+      torso_2_joint:      0.0
+      head_1_joint:       -0.3
+      head_2_joint:       0.47
+      arm_right_1_joint: -0.75
+      arm_right_2_joint:  0.7
+      arm_right_3_joint:  0.8
+      arm_right_4_joint:  1.8
+      arm_right_5_joint:  0.0
+      arm_right_6_joint:  0.0
+      arm_right_7_joint:  0.0
+      arm_left_1_joint:  -0.4
+      arm_left_2_joint:   0.6
+      arm_left_3_joint:  -0.1
+      arm_left_4_joint:   0.6109
+      arm_left_5_joint:   0.0
+      arm_left_6_joint:   0.0
+      arm_left_7_joint:   0.0
+
+    initial_grasp_pose_step2:
+      torso_1_joint:      0.0
+      torso_2_joint:      0.15
+      head_1_joint:       -0.4
+      head_2_joint:       0.47
+      arm_right_1_joint:  0.35
+      arm_right_2_joint:  0.67
+      arm_right_3_joint:  -0.35
+      arm_right_4_joint:  1.65
+      arm_right_5_joint:  -0.3
+      arm_right_6_joint:  0.0
+      arm_right_7_joint:  0.5
+      arm_left_1_joint:  -0.4
+      arm_left_2_joint:   0.6
+      arm_left_3_joint:  -0.1
+      arm_left_4_joint:   0.6109
+      arm_left_5_joint:   0.0
+      arm_left_6_joint:   0.0
+      arm_left_7_joint:   0.0
+

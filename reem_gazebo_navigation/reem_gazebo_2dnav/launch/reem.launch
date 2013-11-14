@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <arg name="gzname" default="gzserver"/>
+  <arg name="rviz" default="rviz"/>
+
+  <arg name="dynamic_footprint" default="true"/>
+
+  <include file="$(find reem_gazebo)/launch/reem_office_world.launch">
+    <arg name="gzname" value="$(arg gzname)"/>
+  </include>
+  <include file="$(find reem_gazebo_2dnav)/launch/navigation.launch" />
+  <include file="$(find reem_tutorials)/launch/$(arg rviz).launch"/>
+
+  <!-- Dynamic footprint publisher -->
+  <group if="$(arg dynamic_footprint)">
+    <include file="$(find pal_dynamic_footprint)/launch/dynamic_footprint_publisher.launch"/>
+  </group>
+
+</launch>

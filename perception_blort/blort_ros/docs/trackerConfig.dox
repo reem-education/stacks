@@ -1,0 +1,12 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~lock" : \b [bool] Lock min: False, default: False, max: True
+- \b "~edge" : \b [bool] Visualize edges min: False, default: False, max: True
+- \b "~reset" : \b [bool] Reset tracker min: False, default: False, max: True
+- \b "~publish_mode" : \b [int] Publish mode min: 0, default: 1, max: 2
+- \b "~render_mode" : \b [int] Render mode min: 0, default: 0, max: 3
+- \b "~visualize_obj_pose" : \b [bool] Visualize object pose min: False, default: False, max: True
+- \b "~time_to_run_singleshot" : \b [double] Time to run singleshot mode min: 1.0, default: 10.0, max: 100.0
+

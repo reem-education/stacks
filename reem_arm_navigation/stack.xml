@@ -1,0 +1,10 @@
+<stack>
+  <description brief="REEM arm navigation"></description>
+  <author>Maintained by Adolfo Rodriguez Tsouroukdissian</author>
+  <license>Modified BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_arm_navigation</url>
+  <depend stack="arm_navigation" /> <!-- move_arm, trajectory_filter_server, robot_self_filter, constraint_aware_spline_smoother, arm_kinematics_constraint_aware, ompl_ros_interface, planning_environment -->
+  <depend stack="arm_navigation_experimental" /> <!-- collider -->
+  <depend stack="ros" />
+</stack>

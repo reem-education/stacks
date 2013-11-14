@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~threshold" : \b [int] Threshold min: 0, default: 89, max: 255
+- \b "~dilate_iterations" : \b [int] Dilate iterations min: 0, default: 7, max: 20
+- \b "~dilate_size" : \b [int] Dilate kernel size min: 3, default: 5, max: 15
+- \b "~erode_iterations" : \b [int] Erode iterations min: 0, default: 1, max: 20
+- \b "~erode_size" : \b [int] Erode kernel size min: 3, default: 3, max: 15
+

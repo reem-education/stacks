@@ -1,0 +1,5 @@
+<launch>
+  <node name="face_detector" pkg="face_detector_opencv" type="face_detector">
+    <remap from="image" to="/stereo/right/image" />
+  </node>
+</launch>

@@ -1,0 +1,19 @@
+<launch>
+
+    <arg name="camera_name" default="/stereo/left"/>
+    <arg name="segmented_image" default="/histogram_segmentation/image_masked"/>
+
+    <!-- Tracker node -->
+    <node pkg="blort_ros" type="gltracker_node" name="blort_tracker" args="$(find blort_ros)">
+        <param name="launch_mode" value="tracking" />
+        <remap from="/detector_camera_info" to="$(arg camera_name)/camera_info" />
+        <remap from="/detector_image" to="$(arg segmented_image)" />
+        <remap from="/tracker_image" to="$(arg camera_name)/image" />           
+    </node>
+    
+    <!-- Detector node -->
+    <node pkg="blort_ros" type="gldetector_node" name="blort_detector" args="$(find blort_ros)" output="screen">
+        <remap from="/blort_camera_info" to="$(arg camera_name)/camera_info" />
+    </node>
+</launch>
+

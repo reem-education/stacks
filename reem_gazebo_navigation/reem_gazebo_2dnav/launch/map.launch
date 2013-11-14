@@ -1,0 +1,5 @@
+<launch>
+  <!-- Run the map server -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find reem_gazebo_2dnav)/config/map.yaml" >
+  </node>
+</launch>

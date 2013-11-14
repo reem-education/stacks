@@ -1,0 +1,32 @@
+<launch>
+  <arg name="robot"  default="full"/>
+  <arg name="gzpose" default="-x 0 -y 0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+
+  <include file="$(find reem_description)/robots/upload_reem.launch">
+    <arg name="robot" value="$(arg robot)"/>
+  </include>
+
+  <!-- Optional environment variable, to enable RGBD sensor  -->
+  <arg name="use_rgbd_sensor" value="$(optenv USE_RGBD_SENSOR false)" />
+  
+  <!-- If use_rgbd_sensor is True send standard REEM URDF model specified by robot argument to ROS Param Server  -->
+  <group unless="$(arg use_rgbd_sensor)">
+    <arg name="gzmodel" default="$(find reem_gazebo)/models/reem_$(arg robot)/model.urdf"/>  
+    <!-- Push robot_description to factory and spawn robot in Gazebo -->
+    <include file="$(find pal_gazebo_plugins)/launch/spawn.launch">
+      <arg name="gzmodel" value="$(arg gzmodel)"/>
+      <arg name="gzpose"  value="$(arg gzpose)"/>
+    </include>
+  </group>
+  
+  <!-- Otherwise, load full REEM URDF with RGBD sensor regardless of robot argument -->
+  <group if="$(arg use_rgbd_sensor)">
+    <arg name="gzmodel" default="$(find reem_gazebo)/models/reem_rgbd/model.urdf"/>  
+    <!-- Push robot_description to factory and spawn robot in Gazebo -->
+    <include file="$(find pal_gazebo_plugins)/launch/spawn.launch">
+      <arg name="gzmodel" value="$(arg gzmodel)"/>
+      <arg name="gzpose"  value="$(arg gzpose)"/>
+    </include>
+  </group>
+
+</launch>

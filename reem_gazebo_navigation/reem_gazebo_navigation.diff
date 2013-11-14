@@ -1,0 +1,166 @@
+Index: reem_gazebo_2dnav/config/base/dwa/costmap_common.yaml
+===================================================================
+--- reem_gazebo_2dnav/config/base/dwa/costmap_common.yaml	(revision 47231)
++++ reem_gazebo_2dnav/config/base/dwa/costmap_common.yaml	(working copy)
+@@ -4,16 +4,7 @@
+ robot_radius: 0.35
+ inflation_radius: 0.45 
+ 
+-observation_sources: base_scan #sonar_cloud #vos #inclined_cloud
++observation_sources: base_scan
+ 
+ base_scan: {sensor_frame: base_laser_link, data_type: LaserScan, topic: scan_filtered, expected_update_rate: 0.3,
+   observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: -0.1, max_obstacle_height: 0.2}
+-
+-vos: {sensor_frame: map, data_type: PointCloud, topic: vo_cloud , expected_update_rate: 12.0, 
+-  observation_persistence: 0.0, marking: true, clearing: false, obstacle_range: 50.0, min_obstacle_height: 0.00, max_obstacle_height: 2.0}
+-
+-inclined_cloud: {sensor_frame: base_torso_laser_link, data_type: PointCloud2, topic: hokuyo_cloud , expected_update_rate: 1.0,
+-  observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: 0.31, max_obstacle_height: 0.8}
+-
+-sonar_cloud: {sensor_frame: base_link, data_type: PointCloud2, topic: sonar_cloud, expected_update_rate: 1.0,
+-  observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: 0.1, max_obstacle_height: 1.8}
+Index: reem_gazebo_2dnav/config/base/trajectory/costmap_common.yaml
+===================================================================
+--- reem_gazebo_2dnav/config/base/trajectory/costmap_common.yaml	(revision 47231)
++++ reem_gazebo_2dnav/config/base/trajectory/costmap_common.yaml	(working copy)
+@@ -4,16 +4,7 @@
+ robot_radius: 0.35
+ inflation_radius: 0.45 
+ 
+-observation_sources: base_scan #sonar_cloud #vos #inclined_cloud
++observation_sources: base_scan
+ 
+ base_scan: {sensor_frame: base_laser_link, data_type: LaserScan, topic: scan_filtered, expected_update_rate: 0.3,
+   observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: -0.1, max_obstacle_height: 0.2}
+-
+-vos: {sensor_frame: map, data_type: PointCloud, topic: vo_cloud , expected_update_rate: 12.0, 
+-  observation_persistence: 0.0, marking: true, clearing: false, obstacle_range: 50.0, min_obstacle_height: 0.00, max_obstacle_height: 2.0}
+-
+-inclined_cloud: {sensor_frame: base_torso_laser_link, data_type: PointCloud2, topic: hokuyo_cloud , expected_update_rate: 1.0,
+-  observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: 0.31, max_obstacle_height: 0.8}
+-
+-sonar_cloud: {sensor_frame: base_link, data_type: PointCloud2, topic: sonar_cloud, expected_update_rate: 1.0,
+-  observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: 0.1, max_obstacle_height: 1.8}
+Index: reem_gazebo_2dnav/launch/gmapping_node.launch
+===================================================================
+--- reem_gazebo_2dnav/launch/gmapping_node.launch	(revision 47231)
++++ reem_gazebo_2dnav/launch/gmapping_node.launch	(working copy)
+@@ -1,5 +1,5 @@
+ <launch>
+-    <node pkg="pal_gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
++    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+       <remap from="scan" to="/scan_filtered"/>
+       <param name="map_udpate_interval" value="2.5"/>
+       <param name="maxUrange" value="18.0"/>
+Index: reem_gazebo_2dnav/launch/navigation.launch
+===================================================================
+--- reem_gazebo_2dnav/launch/navigation.launch	(revision 47231)
++++ reem_gazebo_2dnav/launch/navigation.launch	(working copy)
+@@ -1,26 +1,18 @@
+ <launch>
+ 
+   <arg name="planner" default="base"/>
+-  <arg name="local_planner" default="pal"/>  <!-- pal, dwa, trajectory -->
++  <arg name="local_planner" default="dwa"/>  <!-- dwa, trajectory -->
+   <arg name="localization" default="amcl"/>
+-  <!-- @todo for REEM-C we have reem_2dnav! -->
++
+   <arg name="map" default="$(find reem_gazebo_2dnav)/maps/map.yaml"/>
+ 
+-  <!-- Sonar to cloud -->
+-  <include file="$(find sensor_to_cloud)/launch/sonar_to_cloud.launch"/>
+-
+   <!-- Map -->
+   <include file="$(find reem_gazebo_maps)/launch/map.launch"/>
+-  <!-- @todo for REEM-C we have this (the one above also publish /map_in_use and /vo_map): -->
+-  <!--node name="map_server" pkg="map_server" type="map_server" args="$(arg map)"/-->
+ 
+   <!-- Localization -->
+   <include file="$(find reem_gazebo_2dnav)/launch/amcl_diff.launch"/>
+-  <!-- @todo for REEM-C we have this: -->
+-  <!--include file="$(find reem_2dnav)/launch/localization_$(arg localization).launch"/-->
+ 
+   <!-- Planning -->
+-  <!-- @todo we should use reem_2dnav one! -->
+   <include file="$(find reem_gazebo_2dnav)/launch/move_$(arg planner).launch">
+     <arg name="local_planner" value="$(arg local_planner)"/>
+   </include>
+Index: reem_gazebo_2dnav/launch/reem_mapping.launch
+===================================================================
+--- reem_gazebo_2dnav/launch/reem_mapping.launch	(revision 47231)
++++ reem_gazebo_2dnav/launch/reem_mapping.launch	(working copy)
+@@ -19,6 +19,7 @@
+   <arg name="use_karto" default="true" />
+   <arg name="open_rviz" default="true" />
+   <arg name="world" default="simple_office" />
++  <arg name="rviz_config" default="$(find reem_gazebo_2dnav)/config/reem.vcg" />
+ 
+   <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+     <arg name="gzname" value="$(arg gzname)" />
+@@ -30,6 +31,8 @@
+   <include unless="$(arg use_karto)" file="$(find reem_gazebo_2dnav)/launch/gmapping_node.launch" />
+ 
+   <!-- Launch rviz -->
+-  <include if="$(arg open_rviz)" file="$(find reem_gazebo_2dnav)/launch/rviz.launch" />
++  <include if="$(arg open_rviz)" file="$(find reem_gazebo_2dnav)/launch/rviz.launch">
++    <arg name="config" value="$(arg rviz_config)" />
++  </include>
+ 
+ </launch>
+Index: reem_gazebo_2dnav/launch/reem_navigation.launch
+===================================================================
+--- reem_gazebo_2dnav/launch/reem_navigation.launch	(revision 47231)
++++ reem_gazebo_2dnav/launch/reem_navigation.launch	(working copy)
+@@ -6,7 +6,7 @@
+   <arg name="namespace" default="reem_sim"/>
+   
+   <arg name="planner"       default="base"/>
+-  <arg name="local_planner" default="pal"/>
++  <arg name="local_planner" default="dwa"/>
+   <arg name="localization"  default="amcl"/>
+ 
+   <arg name="world"  default="simple_office"/>
+@@ -14,8 +14,6 @@
+   <arg name="gzname" default="gazebo"/>
+   <arg name="gzpose" default="-x 0.0 -y 0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+          
+-  <arg name="fuerte" default="true"/>
+-
+   <group ns="$(arg namespace)">
+ 
+     <!-- @todo navigation.launch should be the same for gazebo and the real robot! -->
+@@ -33,9 +31,7 @@
+       <arg name="gzpose" value="$(arg gzpose)"/>
+     </include>
+ 
+-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find reem_gazebo_2dnav)/config/$(arg planner)/$(arg local_planner)/reem_navigation.vcg" if="$(arg fuerte)"/>
+-    <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find reem_gazebo_2dnav)/config/$(arg planner)/$(arg local_planner)/reem_navigation.rviz" unless="$(arg fuerte)"/-->
+-    <node name="rviz" pkg="rviz" type="rviz" unless="$(arg fuerte)"/>
++    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find reem_gazebo_2dnav)/config/$(arg planner)/$(arg local_planner)/reem_navigation.vcg"/>
+ 
+   </group>
+ </launch>
+Index: reem_gazebo_2dnav/launch/rviz.launch
+===================================================================
+--- reem_gazebo_2dnav/launch/rviz.launch	(revision 47231)
++++ reem_gazebo_2dnav/launch/rviz.launch	(working copy)
+@@ -1,3 +1,4 @@
+ <launch>
+-  <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(find reem_gazebo_2dnav)/config/reem.vcg" />
++  <arg name="config" default="$(find reem_gazebo_2dnav)/config/reem.vcg"/>
++  <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(arg config)" />
+ </launch>
+Index: reem_gazebo_2dnav/manifest.xml
+===================================================================
+--- reem_gazebo_2dnav/manifest.xml	(revision 47231)
++++ reem_gazebo_2dnav/manifest.xml	(working copy)
+@@ -12,8 +12,6 @@
+   <depend package="topic_tools"/>
+   <depend package="move_base"/>
+   <depend package="reem_gazebo"/>
+-  <depend package="pal_local_planner"/>
+-  <depend package="sensor_to_cloud"/>
+ </package>
+ 
+ 

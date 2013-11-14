@@ -1,0 +1,14 @@
+<package>
+  <description brief="reem_gazebo_maps">
+
+     reem_gazebo_maps
+
+  </description>
+  <author>Jose Capriles</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_gazebo_maps</url>
+  <depend package="map_server"/>
+</package>
+
+

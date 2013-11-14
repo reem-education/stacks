@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="move_arm" type="move_arm_simple_action" name="reem_move_right_arm_torso">
+        <param name="group" type="string" value="right_arm_torso" />
+        <param name="trajectory_filter_allowed_time" type="double" value="2.0" />
+        <remap from="arm_ik" to="reem_right_arm_torso_kinematics/get_constraint_aware_ik" />
+        <param name="controller_action_name" type="string" value="right_arm_torso_controller/follow_joint_trajectory" />
+    </node>
+</launch>

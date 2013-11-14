@@ -1,0 +1,27 @@
+<package>
+  <description brief="pal_vision_segmentation">
+
+    This package provides segmentation nodes based on various techniques. <br/>
+    Masked image or mask provided, and can be tuned via dynamic_reconfigure.
+
+  </description>
+  <author>Created by Bence Magyar. Maintained by Jordi Pages</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pal_disparity_segmentation</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="stereo_image_proc"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="cv_bridge"/>
+  <depend package="image_transport"/>
+  <depend package="geometry_msgs"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lpal_vision_segmentation -lboost_signals"/>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+
+</package>
+
+

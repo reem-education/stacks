@@ -1,0 +1,4 @@
+<launch>
+  <machine name="rh2c" address="rh2c" ros-root="$(env ROS_ROOT)" ros-package-path="$(env ROS_PACKAGE_PATH)" default="true" />
+  <machine name="rh2m" address="rh2m" ros-root="$(env ROS_ROOT)" ros-package-path="$(env ROS_PACKAGE_PATH)" />
+</launch>

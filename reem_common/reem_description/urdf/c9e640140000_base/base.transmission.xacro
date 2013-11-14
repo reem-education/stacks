@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+
+  Copyright (c) 2011, PAL Robotics, S.L.
+  All rights reserved.
+
+  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
+  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- TODO: Add correct transmission values -->
+  <!-- wheels transmission -->
+  <xacro:macro name="reem_wheel_transmission" params="side">
+    <transmission type="pr2_mechanism_model/SimpleTransmission" name="wheel_${side}_trans">
+      <actuator name="wheel_${side}_motor" />
+      <joint name="wheel_${side}_joint" />
+      <mechanicalReduction>1.0</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+
+  <!-- caster transmissions -->
+  <xacro:macro name="reem_caster_simple_transmission" params="name side number reduction" >
+    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${name}_${side}_${number}_trans">
+      <actuator name="${name}_${side}_${number}_motor" />
+      <joint name="${name}_${side}_${number}_joint" />
+      <mechanicalReduction>${reduction}</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+</robot>

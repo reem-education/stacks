@@ -1,0 +1,8 @@
+<launch>
+  <!-- Run simulation of world with a table and several objects on it -->
+  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+    <arg name="world" value="objects_and_marker_on_table"/>
+    <arg name="robot" value="right_hand_marker"/>
+  </include>
+</launch>
+

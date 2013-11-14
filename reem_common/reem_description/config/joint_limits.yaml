@@ -1,0 +1,7 @@
+joint_limits:
+  wheel_left_joint:
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  wheel_right_joint:
+    has_acceleration_limits: true
+    max_acceleration: 1.0

@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="disparity_segmentation_node" pkg="pal_vision_segmentation" type="disparity_segmentation_node">
+  <param name="threshold" type="int" value="89" />
+  <param name="dilate_iterations" type="int" value="7" />
+  <param name="dilate_size" type="int" value="5" />
+  <param name="erode_iterations" type="int" value="1" />
+  <param name="erode_size" type="int" value="3" />
+</node>
+\endverbatim
+

@@ -1,0 +1,13 @@
+<launch>
+
+<!-- base laser filter-->
+ <include file="$(find reem_gazebo_laser_sensors)/launch/sickFilter.launch">
+ <arg name="topic" value="/LMS1xx/LAS_00" />
+ </include>
+
+<!-- torso laser filter-->
+ <include file="$(find reem_gazebo_laser_sensors)/launch/hokuyoFilter.launch">
+ <arg name="topic" value="/hokuyo/LAS_01" />
+ </include>
+
+</launch>

@@ -1,0 +1,4 @@
+repo: d35ce1382aff26255591ba2a2ced3e31bb92f581
+node: 533ba06994cd3507f120d21c784ea614d7fd49a5
+branch: default
+tag: osrf-common_1.0.3

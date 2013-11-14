@@ -1,0 +1,25 @@
+<launch>
+ <arg name="topic" />
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="scan_laser_filter">
+    <rosparam command="load" file="$(find reem_gazebo_laser_sensors)/config/sick_laser_scan_config.yaml" />
+    <remap from="scan" to="$(arg topic)" />
+  </node>
+
+  <!--node pkg="laser_filters" type="scan_to_cloud_filter_chain" name="base_laser_cloud_filter">
+    <rosparam command="load" file="$(find reem_gazebo_laser_sensors)/config/sick_laser_cloud_config.yaml" />
+    <remap from="scan" to="scan_filtered" />
+    <remap from="cloud_filtered" to="sick_cloud" />
+    <param name="use_hack" value="true" />
+   </node-->
+
+  <node pkg="pal_cloud_filter" type="pal_cloud_filter_node" name="pal_sick_cloud_filter">
+    <param name="topic_in" value="/scan_filtered" />
+    <param name="topic_out" value="/sick_cloud"  />
+    <param name="target_frame" value="/base_link"  />
+  </node>
+
+
+</launch>
+
+

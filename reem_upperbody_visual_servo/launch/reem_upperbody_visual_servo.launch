@@ -1,0 +1,23 @@
+<launch>
+  
+  <node name="reem_upperbody_visual_servo_upperbody" pkg="reem_upperbody_visual_servo" type="upperbody" args="$(find reem_upperbody_visual_servo)/etc/desired_state.yml" output = "screen">
+
+    <rosparam>
+     <!-- 0: NONE   1: CLASSICAL   2: LARGE_PROJECTOR -->     
+     joint_limit_avoidance_algorithm: 2
+     step_by_step: False
+     enable_torso_arm: True
+     enable_head: True
+     torso_compensation_to_gaze: True
+     torso_arm_compensation_to_gaze: True
+     gain_torso_arm: 0.2
+     gain_head: 0.5
+     max_joint_velocity: 0.2
+     time_step: 0.2
+     time_from_start_factor: 2.0
+     close_hand: True
+    </rosparam>
+  </node>
+
+</launch>
+

@@ -1,0 +1,11 @@
+<launch>
+   
+   <arg name="world" default="simple_office" />
+
+   <!-- Run mapping in simulation of simple office world -->
+   <include file="$(find reem_gazebo_2dnav)/launch/reem_mapping.launch">
+     <arg name="use_karto" value="false" />
+     <arg name="rviz_config" value="$(find reem_tutorials)/config/reem_mapping.vcg" />
+     <arg name="world" default="$(arg world)" />
+   </include>
+</launch>

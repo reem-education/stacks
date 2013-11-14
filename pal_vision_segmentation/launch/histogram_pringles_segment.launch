@@ -1,0 +1,16 @@
+<launch>
+    
+    <group ns="/histogram_segmentation">
+        <rosparam command="load" file="$(find pal_vision_segmentation)/default_tabletop_histogram.yaml" />
+    </group>
+
+    <!-- declare optional args to be passed in -->
+    <arg name="image_topic" default="/stereo/left/image"/>
+    <arg name="template_name" default="pringles_reem.png"/>
+
+    <node pkg="pal_vision_segmentation" type="histogram_segmentation" name="histogram_segmentation" args="$(find pal_vision_segmentation)/etc/$(arg template_name)" output="screen">
+      <remap from="image" to="$(arg image_topic)" />
+    </node>
+
+</launch>
+

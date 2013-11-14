@@ -1,0 +1,4 @@
+<launch>
+  <arg name="config" default="$(find reem_gazebo_2dnav)/config/reem.vcg"/>
+  <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(arg config)" />
+</launch>

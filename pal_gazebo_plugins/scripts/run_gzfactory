@@ -1,0 +1,33 @@
+#!/bin/bash
+
+##########################
+# Wait for prerequisites #
+##########################
+wait_for_list=(gazebo
+               gzserver)
+
+while true; do
+  echo "Waiting for one of the following processes to appear: ${wait_for_list[*]}"
+  pidof -s ${wait_for_list[*]} > /dev/null
+  if [[ 0 == $? ]]; then
+    echo "Done!"
+    break
+  fi
+  sleep 2
+done
+sleep 2 # To make sure that the Gazebo master is up and running
+
+#################
+# Run gzfactory #
+#################
+echo "$*"
+
+# Discard the last two arguments (__name and _log) when run as a node:
+N=$#
+if [[ "$@" == *__name* ]]
+then
+    N=$(($N - 2))
+fi
+
+gzfactory "${@:1:$N}"
+

@@ -1,0 +1,12 @@
+<package>
+  <description brief="reem_machine">
+     This package contains the xxx.machine files that describe the different hosts a node can be spawned on.
+  </description>
+  <author>Adolfo Rodriguez Tsouroukdissian</author>
+  <license>Modified BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_machine</url>
+
+</package>
+
+

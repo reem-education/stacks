@@ -1,0 +1,8 @@
+# Pose of /marker_hand_frame in /marker_object_frame expressed with a translation vector and the angle-axis rotation
+trans_x: 0.121249664699007
+trans_y: -0.0502880294517448
+trans_z: -0.0330863582817957
+q_x: -0.678065105141851
+q_y: 0.19681719684391
+q_z: 0.192169596474182
+q_w: 0.68158752219097

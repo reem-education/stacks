@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~window_height" : \b [int] Window height min: 1, default: 10, max: 640
+- \b "~window_width" : \b [int] Window width min: 1, default: 10, max: 480
+- \b "~coeffs_to_cancel" : \b [int] Coefficients to cancel in DCT transform min: 0, default: 2, max: 10
+

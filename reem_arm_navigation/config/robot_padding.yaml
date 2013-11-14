@@ -1,0 +1,47 @@
+# Used by ompl and trajectory filter
+default_robot_padding: 0.02
+link_padding:
+  - link: base_link
+    padding: 0.0
+  - link: torso_1_link
+    padding: 0.0
+  - link: torso_2_link
+    padding: 0.0
+  - link: head_1_link
+    padding: 0.0
+  - link: head_2_link
+    padding: 0.0
+  - link: hand_2_link
+    padding: 0.0
+  - link: hand_right_thumb_link
+    padding: 0.1
+  - link: hand_right_index_1_link
+    padding: 0.1
+  - link: hand_right_index_2_link
+    padding: 0.1
+  - link: hand_right_index_3_link
+    padding: 0.1
+  - link: hand_right_middle_1_link
+    padding: 0.1
+  - link: hand_right_middle_2_link
+    padding: 0.1
+  - link: hand_right_middle_3_link
+    padding: 0.1
+  - link: hand_left_thumb_link
+    padding: 0.1
+  - link: hand_left_index_1_link
+    padding: 0.1
+  - link: hand_left_index_2_link
+    padding: 0.1
+  - link: hand_left_index_3_link
+    padding: 0.1
+  - link: hand_left_middle_1_link
+    padding: 0.1
+  - link: hand_left_middle_2_link
+    padding: 0.1
+  - link: hand_left_middle_3_link
+    padding: 0.1
+  - link: arm_left_tool_link
+    padding: 0.1
+  - link: arm_right_tool_link
+    padding: 0.1
