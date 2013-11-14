@@ -1,0 +1,5 @@
+bin
+build
+*.cfgc
+lib
+cfg/cpp
