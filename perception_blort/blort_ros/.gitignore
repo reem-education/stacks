@@ -1,0 +1,12 @@
+build
+bin/gldetector_node
+bin/gltracker_node
+bin/learnsifts
+bin/pose2Tf
+bin/pose2Tf_repeat
+*.cfgc
+cfg/cpp
+lib
+msg_gen
+srv_gen
+
