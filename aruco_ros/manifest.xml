@@ -1,0 +1,25 @@
+<package>
+  <description brief="aruco_ros">
+
+  The ARUCO Library has been developed by the Ava group of the Univeristy of Cordoba(Spain). It provides real-time marker based 3D pose estimation using AR markers.
+  For more info visit http://www.uco.es/investiga/grupos/ava/node/26
+
+  </description>
+  <author>Muñoz Salinas, <br/>
+  Bence Magyar(ROS package)</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/aruco</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="image_transport"/>
+  <depend package="geometry_msgs"/> 
+  <depend package="tf"/>  
+  <depend package="dynamic_reconfigure"/>
+
+  <depend package="pal_vision_segmentation"/>
+
+</package>
+
+

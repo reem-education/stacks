@@ -1,0 +1,22 @@
+<launch>
+
+    <node pkg="aruco_ros" type="double" name="aruco_simple">
+    <!--
+        <remap from="/camera_info" to="/gscam/camera_info" />
+        <remap from="/image" to="/gscam/image_raw" />
+    -->
+        <remap from="/camera_info" to="/stereo/left/camera_info" />
+        <remap from="/image" to="/stereo/left/image_rect_color" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size" value="0.08"/>
+        <param name="marker_id1" value="582"/>
+        <param name="marker_id2" value="26"/>
+        <param name="normalizeImage" value="True"/>
+        <param name="dct_components_to_remove" value="2"/>
+        <param name="parent_name" value="stereo_gazebo_l_stereo_camera_optical_frame"/>
+        <param name="child_name1" value="marker_hand_frame" />
+        <param name="child_name2" value="marker_object_frame" />
+    </node>
+
+</launch>
+
