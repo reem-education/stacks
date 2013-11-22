@@ -2,7 +2,7 @@ Introduction
 ============
 
 
-REEM, the humanoid service robot created by PAL Robotics, can be now used for educational purposes in simulation. These packages show different capabilities of the robot.
+REEM, the humanoid service robot created by PAL Robotics, can be now used for educational purposes in simulation. These packages show different capabilities of the robot: playing upperbody motions, perception, autonomous navigation, etc.
 
 Requirements
 ============
