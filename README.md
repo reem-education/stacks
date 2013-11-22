@@ -18,6 +18,10 @@ https://github.com/reem-education/stacks/blob/fuerte/REEM_simulation_slides.pdf?
 Installation procedure
 ======================
 
+cd <br>
+mkdir reem-education <br>
+cd reem-education <br>
+
 rosinstall . https://raw.github.com/reem-education/stacks/fuerte/reem-education-ros-fuerte-gazebo-1.8.6-standalone.rosinstall
 
 Setup
