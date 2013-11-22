@@ -1,4 +1,3 @@
-
 Introduction
 ============
 
@@ -11,6 +10,10 @@ Requirements
 * Ubuntu 12.04
 * ROS Fuerte
 * Gazebo 1.8.6 standalone
+ 
+for detailed instructions on how to install the requirements please check the following PDF:
+
+https://github.com/reem-education/stacks/blob/fuerte/REEM_simulation_slides.pdf?raw=true
 
 Installation procedure
 ======================
@@ -32,3 +35,21 @@ Append the following text in your ~/.bashrc file:
 	export GAZEBO_PLUGIN_PATH=`rospack find pal_gazebo_plugins`/lib:$GAZEBO_PLUGIN_PATH
 	export GAZEBO_MODEL_PATH=`rospack find reem_gazebo`/models:$GAZEBO_MODEL_PATH
 	export GAZEBO_RESOURCE_PATH=`rospack find reem_gazebo`/reem_gazebo/worlds:$GAZEBO_RESOURCE_PATH
+	
+Build packages
+==============
+
+Open a new terminal so that the changes in ~/.bashrc take effect.
+
+Then build the packages:
+
+rosmake -a --pre-clean
+
+
+Tutorial
+========
+
+Follow the instructions in the following PDF:
+
+https://github.com/reem-education/stacks/blob/fuerte/REEM_simulation_slides.pdf?raw=true
+
