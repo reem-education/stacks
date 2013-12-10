@@ -85,14 +85,12 @@ void removeDarkPixels(const cv::Mat& originalImg,
                       cv::Mat& binaryImg,
                       int threshold = 10)
 {
-  cv::Mat L, a, b;
-
-  //create required wrappers of cv::Mat to pal_vision_util::Image
-  pal_vision_util::Image imgOriginalImg(originalImg), imgL(L), img_a(a), img_b(b);
+  pal_vision_util::Image imgOriginalImg(originalImg), imgL, img_a, img_b;
 
   pal_vision_util::getLab(imgOriginalImg, imgL, img_a, img_b);
 
   //update header of cv::Mat L from imgL:
+  cv::Mat L;
   L = cv::cvarrToMat(imgL.getIplImg());
 
   cv::Mat L_thresholded;
